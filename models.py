@@ -13,11 +13,11 @@ Base = declarative_base()
 class Pessoa(Base):
     __tablename__ = 'pessoas'
     id = Column(Integer, primary_key=True, index=True)
-    nome = Column(String, index=True)
+    nome = Column(String(100), index=True)  
     data_nascimento = Column(Date)
-    endereco = Column(String)
-    cpf = Column(String, unique=True)
-    estado_civil = Column(String)
+    endereco = Column(String(255)) 
+    cpf = Column(String(11), unique=True)  
+    estado_civil = Column(String(20))  
 
 # Pydantic model for request and response
 class PessoaCreate(BaseModel):
